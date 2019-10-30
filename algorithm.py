@@ -217,7 +217,7 @@ def checkSameflower(ch):  # 判断同花
             if t > i:
                 tag = 0
                 te = list1[4]
-                list2 = []
+                list2 = [];
 
                 if list[t][0] >= 5:
                     list2 = fewer_card(t)
