@@ -7,7 +7,9 @@ from algorithm import *
 
 class Start(wx.Frame):
     def __init__(self):
-        wx.Frame.__init__(self, None, -1, "福建十三水", size=(1133, 670), style=wx.DEFAULT_FRAME_STYLE ^ wx.RESIZE_BORDER)
+        kk = wx.Image('start.png', wx.BITMAP_TYPE_ANY)
+        Size = kk.GetWidth(), kk.GetHeight()
+        wx.Frame.__init__(self, None, -1, "福建十三水", size=Size, style=wx.DEFAULT_FRAME_STYLE ^ wx.RESIZE_BORDER)
         self.Center()
         self.init_p = None
         self.font1 = wx.Font(36, wx.DEFAULT, wx.NORMAL, wx.BOLD, faceName='华文行楷')
@@ -21,7 +23,7 @@ class Start(wx.Frame):
             rect = self.GetUpdateRegion().GetBox()
             dc.SetClippingRect(rect)
         dc.Clear()
-        bmp = wx.Bitmap("background.jpg")
+        bmp = wx.Bitmap("start.png")
         kk = wx.Image('background.jpg', wx.BITMAP_TYPE_ANY)
         print(kk.GetWidth(), kk.GetHeight())
         dc.DrawBitmap(bmp, 0, 0)
@@ -29,15 +31,15 @@ class Start(wx.Frame):
     def InitStart(self):
         self.init_p = wx.Panel(self)
         self.init_p.Bind(wx.EVT_ERASE_BACKGROUND, self.OnPaintLong)
-        title = wx.StaticText(self.init_p, -1, '福建十三水', style=wx.ALIGN_CENTER, pos=(450, 100))
-        title.SetFont(self.font1)
-        lg = wx.Button(self.init_p, label='登录', pos=(585, 300), size=(70, 40))
+        # title = wx.StaticText(self.init_p, -1, '福建十三水', style=wx.ALIGN_CENTER, pos=(450, 100))
+        # title.SetFont(self.font1)
+        lg = wx.Button(self.init_p, label='登录', pos=(555, 300), size=(70, 40))
         lg.Bind(wx.EVT_BUTTON, self.OnLogin)
         lg.SetFont(self.font2)
-        rg = wx.Button(self.init_p, label='注册', pos=(585, 350), size=(70, 40))
+        rg = wx.Button(self.init_p, label='注册', pos=(555, 350), size=(70, 40))
         rg.Bind(wx.EVT_BUTTON, self.OnRegister)
         rg.SetFont(self.font2)
-        ex1 = wx.Button(self.init_p, label='退出', pos=(585, 400), size=(70, 40))
+        ex1 = wx.Button(self.init_p, label='退出', pos=(555, 400), size=(70, 40))
         ex1.Bind(wx.EVT_BUTTON, self.OnExit)
         ex1.SetFont(self.font2)
 
@@ -57,7 +59,9 @@ class Start(wx.Frame):
 
 class Login(wx.Frame):
     def __init__(self):
-        wx.Frame.__init__(self, None, -1, "福建十三水", size=(1100, 620), style=wx.DEFAULT_FRAME_STYLE ^ wx.RESIZE_BORDER)
+        kk = wx.Image('login.png', wx.BITMAP_TYPE_ANY)
+        Size = kk.GetWidth(), kk.GetHeight()
+        wx.Frame.__init__(self, None, -1, "福建十三水", size=Size, style=wx.DEFAULT_FRAME_STYLE ^ wx.RESIZE_BORDER)
         self.Center()
         self.login_p = None
         self.name_in = None
@@ -80,18 +84,18 @@ class Login(wx.Frame):
     def InitLogin(self):
         self.login_p = wx.Panel(self)
         self.login_p.Bind(wx.EVT_ERASE_BACKGROUND, self.OnPaintLong)
-        title = wx.StaticText(self.login_p, -1, '福建十三水', style=wx.ALIGN_CENTER, pos=(500, 100))
-        title.SetFont(self.font1)
-        user_name = wx.StaticText(self.login_p, -1, '用户名:', style=wx.ALIGN_LEFT, pos=(500, 300))
-        user_name.SetFont(self.font2)
-        user_password = wx.StaticText(self.login_p, -1, '密码:', style=wx.ALIGN_LEFT, pos=(500, 350))
-        user_password.SetFont(self.font2)
-        self.name_in = wx.TextCtrl(self.login_p, -1, pos=(620, 300), style=wx.TE_LEFT)
-        self.password_in = wx.TextCtrl(self.login_p, -1, pos=(620, 350), style=wx.TE_LEFT | wx.TE_PASSWORD)
-        login = wx.Button(self.login_p, label='登录', pos=(500, 400), size=(230, 40))
+        # title = wx.StaticText(self.login_p, -1, '福建十三水', style=wx.ALIGN_CENTER, pos=(500, 100))
+        # title.SetFont(self.font1)
+        # user_name = wx.StaticText(self.login_p, -1, '用户名:', style=wx.ALIGN_LEFT, pos=(500, 300))
+        # user_name.SetFont(self.font2)
+        # user_password = wx.StaticText(self.login_p, -1, '密码:', style=wx.ALIGN_LEFT, pos=(500, 350))
+        # user_password.SetFont(self.font2)
+        self.name_in = wx.TextCtrl(self.login_p, -1, pos=(695, 237), style=wx.TE_LEFT)
+        self.password_in = wx.TextCtrl(self.login_p, -1, pos=(695, 300), style=wx.TE_LEFT | wx.TE_PASSWORD)
+        login = wx.Button(self.login_p, label='登录', pos=(700, 355), size=(100, 40))
         login.SetFont(self.font2)
         login.Bind(wx.EVT_BUTTON, self.OnLogin)
-        back = wx.Button(self.login_p, label='返回', pos=(900, 600))
+        back = wx.Button(self.login_p, label='返回', pos=(0, 0),size=(100, 40))
         back.SetFont(self.font2)
         back.Bind(wx.EVT_BUTTON, self.OnBack)
 
@@ -125,7 +129,9 @@ class Login(wx.Frame):
 
 class Register(wx.Frame):
     def __init__(self):
-        wx.Frame.__init__(self, None, -1, "福建十三水", size=(1276, 729), style=wx.DEFAULT_FRAME_STYLE ^ wx.RESIZE_BORDER)
+        kk = wx.Image('res.png', wx.BITMAP_TYPE_ANY)
+        Size = kk.GetWidth(), kk.GetHeight()
+        wx.Frame.__init__(self, None, -1, "福建十三水", size=Size, style=wx.DEFAULT_FRAME_STYLE ^ wx.RESIZE_BORDER)
         self.Center()
         self.register_p = None
         self.name_in = None
@@ -145,30 +151,20 @@ class Register(wx.Frame):
             rect = self.GetUpdateRegion().GetBox()
             dc.SetClippingRect(rect)
         dc.Clear()
-        bmp = wx.Bitmap("login.png")
+        bmp = wx.Bitmap("res.png")
         dc.DrawBitmap(bmp, 0, 0)
 
     def InitRegister(self):
         self.register_p = wx.Panel(self)
         self.register_p.Bind(wx.EVT_ERASE_BACKGROUND, self.OnPaintLong)
-        title = wx.StaticText(self.register_p, -1, '福建十三水', style=wx.ALIGN_CENTER, pos=(500, 100))
-        title.SetFont(self.font1)
-        user_name = wx.StaticText(self.register_p, -1, '用户名:', style=wx.ALIGN_LEFT, pos=(500, 250))
-        user_name.SetFont(self.font2)
-        user_password = wx.StaticText(self.register_p, -1, '密码:', style=wx.ALIGN_LEFT, pos=(500, 300))
-        user_password.SetFont(self.font2)
-        stu_number = wx.StaticText(self.register_p, -1, '学号:', style=wx.ALIGN_LEFT, pos=(500, 350))
-        stu_number.SetFont(self.font2)
-        stu_password = wx.StaticText(self.register_p, -1, '教务处密码:', style=wx.ALIGN_LEFT, pos=(500, 400))
-        stu_password.SetFont(self.font2)
-        self.name_in = wx.TextCtrl(self.register_p, -1, pos=(620, 250), style=wx.TE_LEFT)
-        self.password_in = wx.TextCtrl(self.register_p, -1, pos=(620, 300), style=wx.TE_LEFT | wx.TE_PASSWORD)
-        self.stu_number_in = wx.TextCtrl(self.register_p, -1, pos=(620, 350), style=wx.TE_LEFT)
-        self.stu_password_in = wx.TextCtrl(self.register_p, -1, pos=(700, 400), style=wx.TE_LEFT | wx.TE_PASSWORD)
-        register = wx.Button(self.register_p, label='注册', pos=(500, 460), size=(230, 40))
+        self.name_in = wx.TextCtrl(self.register_p, -1, pos=(515, 234), style=wx.TE_LEFT)
+        self.password_in = wx.TextCtrl(self.register_p, -1, pos=(515, 279), style=wx.TE_LEFT | wx.TE_PASSWORD)
+        self.stu_number_in = wx.TextCtrl(self.register_p, -1, pos=(515, 324), style=wx.TE_LEFT)
+        self.stu_password_in = wx.TextCtrl(self.register_p, -1, pos=(515, 369), style=wx.TE_LEFT | wx.TE_PASSWORD)
+        register = wx.Button(self.register_p, label='注册', pos=(500, 460), size=(100, 40))
         register.SetFont(self.font2)
         register.Bind(wx.EVT_BUTTON, self.OnRegister)
-        back = wx.Button(self.register_p, label='返回', pos=(1100, 600))
+        back = wx.Button(self.register_p, label='返回', pos=(0, 0), size=(100, 40))
         back.SetFont(self.font2)
         back.Bind(wx.EVT_BUTTON, self.OnBack)
 
@@ -219,7 +215,10 @@ class Register(wx.Frame):
 
 class Hall(wx.Frame):
     def __init__(self, token):
-        wx.Frame.__init__(self, None, -1, "福建十三水", size=(1276, 729), style=wx.DEFAULT_FRAME_STYLE ^ wx.RESIZE_BORDER)
+        kk = wx.Image('background.jpg', wx.BITMAP_TYPE_ANY)
+        Size = kk.GetWidth(), kk.GetHeight()
+        print(Size)
+        wx.Frame.__init__(self, None, -1, "福建十三水", size=Size, style=wx.DEFAULT_FRAME_STYLE ^ wx.RESIZE_BORDER)
         self.Center()
         self.hall_p = None
         self.token = token
@@ -229,19 +228,19 @@ class Hall(wx.Frame):
     def InitHall(self):
         self.hall_p = wx.Panel(self)
         self.hall_p.Bind(wx.EVT_ERASE_BACKGROUND, self.OnPaintHall)
-        begin = wx.Button(self.hall_p, label='开\n始\n游\n戏', pos=(800, 100), size=(80, 250))
+        begin = wx.Button(self.hall_p, label='开始游戏', pos=(500, 100), size=(160, 70))
         begin.Bind(wx.EVT_BUTTON, self.OnBegin)
         begin.SetFont(self.font)
-        rank = wx.Button(self.hall_p, label='排\n行\n榜', pos=(900, 100), size=(80, 250))
+        rank = wx.Button(self.hall_p, label='排行榜', pos=(500, 200), size=(160, 70))
         rank.Bind(wx.EVT_BUTTON, self.OnRank)
         rank.SetFont(self.font)
-        history = wx.Button(self.hall_p, label='历\n史\n战\n况', pos=(1000, 100), size=(80, 250))
+        history = wx.Button(self.hall_p, label='历史战况', pos=(500, 300), size=(160, 70))
         history.Bind(wx.EVT_BUTTON, self.OnHistory)
         history.SetFont(self.font)
-        all_battle = wx.Button(self.hall_p, label='对\n局\n查\n询', pos=(1100, 100), size=(80, 250))
+        all_battle = wx.Button(self.hall_p, label='对局查询', pos=(500, 400), size=(160, 70))
         all_battle.Bind(wx.EVT_BUTTON, self.OnAllBattle)
         all_battle.SetFont(self.font)
-        out = wx.Button(self.hall_p, label='注销', pos=(1100, 600), size=(85, 45))
+        out = wx.Button(self.hall_p, label='注销', pos=(0, 0), size=(85, 45))
         out.Bind(wx.EVT_BUTTON, self.OnOut)
         out.SetFont(self.font)
 
@@ -252,7 +251,7 @@ class Hall(wx.Frame):
             rect = self.GetUpdateRegion().GetBox()
             dc.SetClippingRect(rect)
         dc.Clear()
-        bmp = wx.Bitmap("hall.jpg")
+        bmp = wx.Bitmap("background.jpg")
         dc.DrawBitmap(bmp, 0, 0)
 
     def OnOut(self, event):
@@ -288,7 +287,9 @@ class Hall(wx.Frame):
 
 class Game(wx.Frame):
     def __init__(self, token):
-        wx.Frame.__init__(self, None, -1, "福建十三水", size=(1276, 729), style=wx.DEFAULT_FRAME_STYLE ^ wx.RESIZE_BORDER)
+        kk = wx.Image('background.jpg', wx.BITMAP_TYPE_ANY)
+        Size = kk.GetWidth(), kk.GetHeight()
+        wx.Frame.__init__(self, None, -1, "福建十三水", size=Size, style=wx.DEFAULT_FRAME_STYLE ^ wx.RESIZE_BORDER)
         self.Center()
         self.game_p = None
         self.go = None
@@ -298,20 +299,20 @@ class Game(wx.Frame):
         self.back = None
         self.token = token
         self.font = wx.Font(42, wx.DEFAULT, wx.NORMAL, wx.BOLD, faceName='华文行楷')
-        self.font2 = wx.Font(34, wx.DEFAULT, wx.NORMAL, wx.BOLD, faceName='华文行楷')
+        self.font2 = wx.Font(24, wx.DEFAULT, wx.NORMAL, wx.BOLD, faceName='华文行楷')
         self.InitGame()
 
     def InitGame(self):
         self.game_p = wx.Panel(self)
         self.game_p.Bind(wx.EVT_ERASE_BACKGROUND, self.OnPaintGame)
-        self.go = wx.Button(self.game_p, label='开始', pos=(550, 320), size=(120, 70))
+        self.go = wx.Button(self.game_p, label='开始', pos=(530, 290), size=(120, 70))
         self.go.Bind(wx.EVT_BUTTON, self.OnGo)
         self.go.SetFont(self.font)
-        self.play = wx.Button(self.game_p, label='出牌', pos=(550, 320), size=(120, 70))
+        self.play = wx.Button(self.game_p, label='出牌', pos=(550, 290), size=(120, 70))
         self.play.Bind(wx.EVT_BUTTON, self.OnPlay)
         self.play.SetFont(self.font)
         self.play.Hide()
-        self.back = wx.Button(self.game_p, label='返回', pos=(1100, 600), size=(90, 40))
+        self.back = wx.Button(self.game_p, label='返回', pos=(0, 0), size=(85, 45))
         self.back.Bind(wx.EVT_BUTTON, self.OnBack)
         self.back.SetFont(self.font2)
 
@@ -368,13 +369,15 @@ class Game(wx.Frame):
             rect = self.GetUpdateRegion().GetBox()
             dc.SetClippingRect(rect)
         dc.Clear()
-        bmp = wx.Bitmap("gaming.jpg")
+        bmp = wx.Bitmap("background.jpg")
         dc.DrawBitmap(bmp, 0, 0)
 
 
 class Rank(wx.Frame):
     def __init__(self, token):
-        wx.Frame.__init__(self, None, -1, "福建十三水", size=(1276, 729), style=wx.DEFAULT_FRAME_STYLE ^ wx.RESIZE_BORDER)
+        kk = wx.Image('background.jpg', wx.BITMAP_TYPE_ANY)
+        Size = kk.GetWidth(), kk.GetHeight()
+        wx.Frame.__init__(self, None, -1, "福建十三水", size=Size, style=wx.DEFAULT_FRAME_STYLE ^ wx.RESIZE_BORDER)
         self.Center()
         self.token = token
         self.rank_p = None
@@ -398,7 +401,7 @@ class Rank(wx.Frame):
         self.grid = wx.grid.Grid(self.rank_p, -1)
         self.grid.CreateGrid(lenth, 3)
         self.grid.SetSize((750, 500))
-        self.grid.SetPosition((490, 100))
+        self.grid.SetPosition((200, 50))
         for col in range(3):
             self.grid.SetColSize(col, 215)
         for row in range(lenth):
@@ -414,7 +417,7 @@ class Rank(wx.Frame):
             self.grid.SetCellAlignment(i, 0, wx.ALIGN_CENTER, wx.ALIGN_CENTER)
             self.grid.SetCellAlignment(i, 1, wx.ALIGN_CENTER, wx.ALIGN_CENTER)
             self.grid.SetCellAlignment(i, 2, wx.ALIGN_CENTER, wx.ALIGN_CENTER)
-        back = wx.Button(self.rank_p, label='返回', pos=(1100, 630), size=(80, 40))
+        back = wx.Button(self.rank_p, label='返回', pos=(0, 0), size=(80, 40))
         back.SetFont(self.font)
         back.Bind(wx.EVT_BUTTON, self.OnBack)
 
@@ -425,7 +428,7 @@ class Rank(wx.Frame):
             rect = self.GetUpdateRegion().GetBox()
             dc.SetClippingRect(rect)
         dc.Clear()
-        bmp = wx.Bitmap("hall.jpg")
+        bmp = wx.Bitmap("background.jpg")
         dc.DrawBitmap(bmp, 0, 0)
 
     def OnBack(self, event):
@@ -436,7 +439,9 @@ class Rank(wx.Frame):
 
 class History(wx.Frame):
     def __init__(self, token):
-        wx.Frame.__init__(self, None, -1, "福建十三水", size=(1276, 729), style=wx.DEFAULT_FRAME_STYLE ^ wx.RESIZE_BORDER)
+        kk = wx.Image('background.jpg', wx.BITMAP_TYPE_ANY)
+        Size = kk.GetWidth(), kk.GetHeight()
+        wx.Frame.__init__(self, None, -1, "福建十三水", size=Size, style=wx.DEFAULT_FRAME_STYLE ^ wx.RESIZE_BORDER)
         self.Center()
         self.history_p = None
         self.get_id = None
@@ -454,7 +459,7 @@ class History(wx.Frame):
     def InitHistory(self):
         self.history_p = wx.Panel(self)
         self.history_p.Bind(wx.EVT_ERASE_BACKGROUND, self.OnPaintHistory)
-        back = wx.Button(self.history_p, label='返回', pos=(1100, 630), size=(80, 40))
+        back = wx.Button(self.history_p, label='返回', pos=(0, 0), size=(80, 40))
         back.SetFont(self.font)
         back.Bind(wx.EVT_BUTTON, self.OnBack)
         self.tip = wx.StaticText(self.history_p, label='请输入玩家id', pos=(450, 100), size=(190, 30))
@@ -463,16 +468,16 @@ class History(wx.Frame):
         self.search = wx.Button(self.history_p, label='搜索', pos=(795, 100), size=(80, 30))
         self.search.SetFont(self.font)
         self.search.Bind(wx.EVT_BUTTON, self.OnSearch)
-        self.last = wx.Button(self.history_p, label='上一页', pos=(315, 550), size=(100, 40))
+        self.last = wx.Button(self.history_p, label='上一页', pos=(210, 550), size=(100, 40))
         self.last.SetFont(self.font)
         self.last.Bind(wx.EVT_BUTTON, self.OnLast)
-        self.next = wx.Button(self.history_p, label='下一页', pos=(900, 550), size=(100, 40))
+        self.next = wx.Button(self.history_p, label='下一页', pos=(795, 550), size=(100, 40))
         self.next.SetFont(self.font)
         self.next.Bind(wx.EVT_BUTTON, self.OnNext)
         self.grid = wx.grid.Grid(self.history_p, -1)
         self.grid.CreateGrid(10, 4)
         self.grid.SetSize((683, 333))
-        self.grid.SetPosition((315, 180))
+        self.grid.SetPosition((210, 180))
         self.grid.SetColSize(3, 120)
         self.grid.SetColSize(1, 320)
         for i in range(10):
@@ -489,7 +494,7 @@ class History(wx.Frame):
             rect = self.GetUpdateRegion().GetBox()
             dc.SetClippingRect(rect)
         dc.Clear()
-        bmp = wx.Bitmap("hall.jpg")
+        bmp = wx.Bitmap("background.jpg")
         dc.DrawBitmap(bmp, 0, 0)
 
     def OnBack(self, event):
@@ -567,7 +572,9 @@ class History(wx.Frame):
 
 class FindBattle(wx.Frame):
     def __init__(self, token):
-        wx.Frame.__init__(self, None, -1, "福建十三水", size=(1276, 729), style=wx.DEFAULT_FRAME_STYLE ^ wx.RESIZE_BORDER)
+        kk = wx.Image('background.jpg', wx.BITMAP_TYPE_ANY)
+        Size = kk.GetWidth(), kk.GetHeight()
+        wx.Frame.__init__(self, None, -1, "福建十三水", size=Size, style=wx.DEFAULT_FRAME_STYLE ^ wx.RESIZE_BORDER)
         self.Center()
         self.find_p = None
         self.grid = None
@@ -584,14 +591,14 @@ class FindBattle(wx.Frame):
         self.grid = wx.grid.Grid(self.find_p, -1)
         self.grid.CreateGrid(4, 4)
         self.grid.SetSize((690, 120))
-        self.grid.SetPosition((400, 200))
+        self.grid.SetPosition((210, 200))
         self.grid.SetColSize(3, 110)
         self.grid.SetColSize(1, 320)
         self.grid.SetColLabelValue(0, "玩家id")
         self.grid.SetColLabelValue(1, "出牌情况")
         self.grid.SetColLabelValue(2, "玩家昵称")
         self.grid.SetColLabelValue(3, "分数")
-        back = wx.Button(self.find_p, label='返回', pos=(1100, 630), size=(80, 40))
+        back = wx.Button(self.find_p, label='返回', pos=(0, 0), size=(80, 40))
         back.SetFont(self.font)
         back.Bind(wx.EVT_BUTTON, self.OnBack)
         self.tip = wx.StaticText(self.find_p, label='请输入要查询的战局id', pos=(450, 100), size=(190, 30))
@@ -608,7 +615,7 @@ class FindBattle(wx.Frame):
             rect = self.GetUpdateRegion().GetBox()
             dc.SetClippingRect(rect)
         dc.Clear()
-        bmp = wx.Bitmap("hall.jpg")
+        bmp = wx.Bitmap("background.jpg")
         dc.DrawBitmap(bmp, 0, 0)
 
     def OnBack(self, event):
